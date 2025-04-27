@@ -1,75 +1,66 @@
-# Nuxt Minimal Starter
+# Portfolio v3
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Eban Rami's personal portfolio website built with Nuxt 3 and Tailwind CSS.
 
-## Setup
+## Features
 
-Make sure to install dependencies:
+- Content-driven pages using `@nuxt/content`
+- Tailwind CSS styling (via `@tailwindcss/vite`)
+
+## Tech Stack
+
+- Nuxt 3
+- TypeScript
+- Tailwind CSS
+- `@nuxt/content` for Markdown content
+
+## Project Setup
+
+Install dependencies and start the dev server:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
 bun install
+bun dev
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+### Build for Production
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
 bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Content Structure
+
+- `content/index.md`: homepage content
+- `content/articles/*.md`: article content pages
+- `content.config.ts`: content collections configuration
+
+## Configuration
+
+- `nuxt.config.ts`: main Nuxt configuration (modules, CSS, Vite plugins)
+- `tsconfig.json`: TypeScript configuration
+
+## Directory Structure
+
+```
+.
+├── assets/              # Global styles
+├── components/          # Vue components (ModeSwitcher, AvatarStack, CardList)
+├── content/             # Markdown content (index & articles)
+├── pages/               # Nuxt page components
+├── public/              # Public assets & images
+├── nuxt.config.ts       # Nuxt configuration
+├── content.config.ts    # Content collections configuration
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+## License
+
+AGPL-3.0
+
+## Author
+
+Eban Rami
