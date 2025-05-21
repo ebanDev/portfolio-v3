@@ -22,5 +22,8 @@ useHead({
       href: '/avatar-1.jpeg',
     },
   ],
+  htmlAttrs: {
+    lang: 'en',
+  },
 })
 </script>
