@@ -3,21 +3,21 @@ title: Pegasus, à la croisée du technique et du politique
 author: Eban
 category: informatics
 date: August 11, 2021
-description: Le 18 juillet 2021 à 19h, Amnesty International révèle dans une enquête en collaboration avec Forbidden Stories que le logiciel Pegasus, édité par la société israélienne NSO Group, a été utilisé à des fins d'espionnage contre des militants politiques, des journalistes, des membre d'ONG etc. Nous analyserons dans cet article l'aspect technique du spyware Pegasus dans sa version pour iOS.
+description: Le 18 juillet 2021 à 19h, Amnesty International révèle dans une enquête en collaboration avec Forbidden Stories que le logiciel Pegasus, édité par la société israélienne NSO Group, a été utilisé à des fins d'espionnage contre des militants politiques, des journalistes, des membres d'ONG, etc. Nous analyserons dans cet article l'aspect technique du spyware Pegasus dans sa version pour iOS.
 highlighted: Yes
 published: Yes
 slug: pegasus
 initialPublisher: I Learned
 initialLink: https://blog.ilearned.eu/pegasus.html
-icon: tabler-horse
+icon: ph:horse-bold
 cover: https://uploads0.wikiart.org/images/odilon-redon/the-black-pegasus.jpg
 coverDescription: The Black Pegasus, 1910 - Odilon Redon
 ---
 
 
-Le 18 juillet 2021 à 19h, [Amnesty International](https://www.amnesty.org/en/) révèle dans une enquête en collaboration avec [Forbidden Stories](https://forbiddenstories.org/) que le logiciel Pegasus, édité par la société israélienne [NSO Group](https://www.nsogroup.com/), a été utilisé à des fins d'espionnage contre des militants politiques, des journalistes, des membres d'ONG etc. On apprendra quelques jours plus tard que l'État marocain a acheté à NSO sa solution d'espionnage afin de placer sur écoute de nombreux ministres français, mais aussi Edwy Plenel, Eric Zemmour ou encore Emmanuel Macron. Ce logiciel avait déjà été mis sous le feu des projecteurs en 2016 par [Citizen Lab](https://citizenlab.ca/) pour dénoncer le même genre de pratiques. Nous analyserons dans cet article l'aspect technique du spyware Pegasus dans sa version pour iOS.
+Le 18 juillet 2021 à 19h, [Amnesty International](https://www.amnesty.org/en/) révèle dans une enquête en collaboration avec [Forbidden Stories](https://forbiddenstories.org/) que le logiciel Pegasus, édité par la société israélienne [NSO Group](https://www.nsogroup.com/), a été utilisé à des fins d'espionnage contre des militants politiques, des journalistes, des membres d'ONG, etc. On apprendra quelques jours plus tard que l'État marocain a acheté à NSO sa solution d'espionnage afin de placer sur écoute de nombreux ministres français, mais aussi Edwy Plenel, Eric Zemmour ou encore Emmanuel Macron. Ce logiciel avait déjà été mis sous le feu des projecteurs en 2016 par [Citizen Lab](https://citizenlab.ca/) pour dénoncer le même genre de pratiques. Nous analyserons dans cet article l'aspect technique du spyware Pegasus dans sa version pour iOS.
 
-# Première révélations, 2016 − Trident
+# Premières révélations, 2016 − Trident
 
 En 2016, la société Lookout publie [un whitepaper](https://info.lookout.com/rs/051-ESQ-475/images/lookout-pegasus-technical-analysis.pdf) détaillant le fonctionnement technique de Pegasus sur iOS. Le mode opératoire de ce spyware est relativement simple, un message contenant un lien est envoyé à la cible, lorsque la cible clique sur le lien une faille 0day est exploitée sur le téléphone de la victime, et le spyware s'installe. 
 
@@ -33,7 +33,7 @@ var s = a.slice(1, 3);
 // s = [2, 3]
 ```
 
-Grace à cette vulnérabilité que nous ne verrons pas en détail ici étant donné la complexité de son fonctionnement, un code JavaScript malveillant peut écrire à des endroits dans la mémoire auxquels il ne devrait pas avoir accès, ainsi un attaquant peut exécuter du code directement sur le système depuis une page web.
+Grâce à cette vulnérabilité que nous ne verrons pas en détail ici étant donné la complexité de son fonctionnement, un code JavaScript malveillant peut écrire à des endroits dans la mémoire auxquels il ne devrait pas avoir accès, ainsi un attaquant peut exécuter du code directement sur le système depuis une page web.
 
 Une fois cette faille exploitée, Pegasus en utilise une seconde, la CVE-2016-4655.
 
@@ -55,21 +55,21 @@ Afin de rester le plus discret possible, l'adresse du C2 ([Command & Control](ht
 Your Google Verification code is:5678429
 [http://gmail.com/?z=G&i=1:aalaan.tv:443,1:manoraonlinu.nut:443&s=Λ�=&�](http://gmail.com/?z=G&i=1:aalaan.tv:443,1:manoraonlinu.nut:443&s=%CE%9B%EF%BF%BD=&%EF%BF%BD)
 
-On peut voir que dans le paramètre `i`, l'adresse du C2 est caché. D'après les analyses de Lookout, le dernier chiffre du code de vérification correspondrait au "numéro d'instruction", ici `9`. Ainsi, même en l'absence d'accès à internet il est possible pour NSO Group d’interagir avec un téléphone infecté.
+On peut voir que dans le paramètre `i`, l'adresse du C2 est cachée. D'après les analyses de Lookout, le dernier chiffre du code de vérification correspondrait au "numéro d'instruction", ici `9`. Ainsi, même en l'absence d'accès à internet, il est possible pour NSO Group d’interagir avec un téléphone infecté.
 
-Pour parvenir à ses fins, Pegasus utilise donc trois 0day différentes ! Ceci démontre bien la sophistication avancée du logiciel de la firme israélienne. L'utilisation de trois failles `0day` montrent aussi que les moyens financiers  mis en place pour créer Pegasus sont extrêmement importants.
+Pegasus s'appuie donc sur trois failles 0 day distinctes. Cela illustre le niveau de sophistication du logiciel. L'utilisation de trois failles `0day` montre aussi que les moyens financiers mis en place pour créer Pegasus sont importants.
 
 ![La CVE-2016-4657 permet d'obtenir une RCE, puis la CVE-2016-4655 permet de trouver le kernel slide. Enfin, la CVE-2016-4656 permet de jailbreak l'appareil et d'installer Pegasus](pegasus/Infection_Pegasus(1).png)
 
 La CVE-2016-4657 permet d'obtenir une RCE, puis la CVE-2016-4655 permet de trouver le kernel slide. Enfin, la CVE-2016-4656 permet de jailbreak l'appareil et d'installer Pegasus
 
-# Une affaire d'une ampleur tentaculaire, 2021 − Megalodon
+# Une affaire d'ampleur, 2021 − Megalodon
 
-Le 18 juin 2021 la cellule investigation d'Amnesty International révélait donc dans un [whitepaper](https://www.amnesty.org/en/latest/research/2021/07/forensic-methodology-report-how-to-catch-nso-groups-pegasus/) le nouveau mode opératoire de Pegasus, et en particulier l'existence de l'exploitation de failles dites `0click`. Cette vulnérabilité permet à un attaquant, par un simple iMessage, d'infecter un téléphone. Amnesty a pu récupérer depuis des sauvegardes iCloud un certain nombre d'[adresse mail](https://github.com/AmnestyTech/investigations/blob/master/2021-07-18_nso/emails.txt) correspondant aux compte iCloud utilisés pour infecter les téléphones cibles.
+Le 18 juin 2021, la cellule d'investigation d'Amnesty International révélait donc dans un [whitepaper](https://www.amnesty.org/en/latest/research/2021/07/forensic-methodology-report-how-to-catch-nso-groups-pegasus/) le nouveau mode opératoire de Pegasus, et en particulier l'existence de l'exploitation de failles dites `0click`. Cette vulnérabilité permet à un attaquant, par un simple iMessage, d'infecter un téléphone. Amnesty a pu récupérer depuis des sauvegardes iCloud un certain nombre d'[adresses mail](https://github.com/AmnestyTech/investigations/blob/master/2021-07-18_nso/emails.txt) correspondant aux comptes iCloud utilisés pour infecter les téléphones cibles.
 
 Pour se camoufler, Pegasus utilise pour le nom de ses processus des noms très similaires à ceux utilisés par iOS.
 
-En voici quelques exemples
+En voici quelques exemples :
 
 | Nom de processus utilisé par Pegasus | Nom de processus original |
 | --- | --- |
@@ -80,12 +80,12 @@ En voici quelques exemples
 | com.apple.rapports.events | com.apple.rapport.events |
 | CommsCenterRootHelper | CommCenterRootHelper |
 
-Le Security Lab d'Amnesty a aussi pu détecter que des applications comme Apple Music on été utilisées comme des vecteurs d'attaque.
+Le Security Lab d'Amnesty a aussi pu détecter que des applications comme Apple Music ont été utilisées comme des vecteurs d'attaque.
 
 vx-underground a publiqué [des fichiers](https://twitter.com/vxunderground/status/1418207502974525441?s=20) qui, selon leurs dires, seraient la version pour Android de Pegasus, cependant, la société [ZecOps](https://www.zecops.com/) a pu analyser ces fichiers qui, [selon eux](https://twitter.com/ZecOps/status/1418954109768531968?s=20), n'appartiendraient pas à Pegasus.
 
-L'ensemble de ces nouvelles techniques restent relativement floues, en effet, Amnesty International n'a pas pu récupérer le binaire de Pegasus pour l'analyser, celui-ci étant chiffré. Sans cette rétro-ingénierie, aucune CVE n'a pu être publiée.
+L'ensemble de ces nouvelles techniques reste relativement flou, en effet, Amnesty International n'a pas pu récupérer le binaire de Pegasus pour l'analyser, celui-ci étant chiffré. Sans cette rétro-ingénierie, aucune CVE n'a pu être publiée.
 
-# Au delà de la technique
+# Au-delà de la technique
 
-Au delà de l'aspect technique, cette affaire est avant tout politique. Elle montre une fois de plus qu'à l'ère d'un monde toujours plus informatisé, toujours plus mondialisé, il est aisé pour les services de renseignement d'états anti-démocratiques − comme celui du Maroc qui, [d'après Amnesty International](https://www.lemonde.fr/projet-pegasus/article/2021/07/22/projet-pegasus-emmanuel-macron-convoque-un-conseil-de-defense-exceptionnel_6089148_6088648.html) aurait acheté sa solution à NSO Group − d'espionner à peu près n'importe qui à l'autre bout de la planète. L'affaire Pegasus montre enfin que, malgré l'avis général de la population [contre](https://www.amnesty.org/fr/latest/news/2015/03/global-opposition-to-usa-big-brother-mass-surveillance/) la surveillance des communications électroniques, les gouvernements des différents pays continuent d'opérer ces pratiques dans le plus grand secret. Cette distance, entre l'avis de la majorité de la population et les décisions prises par nos gouvernements est le signe de la défaillance de nos systèmes politiques.
+Au-delà de l'aspect technique, cette affaire est avant tout politique. Elle montre qu'à l'ère d'un monde interconnecté, il est possible pour les services de renseignement d'États anti-démocratiques − comme celui du Maroc qui, [d'après Amnesty International](https://www.lemonde.fr/projet-pegasus/article/2021/07/22/projet-pegasus-emmanuel-macron-convoque-un-conseil-de-defense-exceptionnel_6089148_6088648.html) aurait acheté sa solution à NSO Group − d'espionner des cibles très diverses à l'autre bout de la planète. L'affaire Pegasus montre enfin que, malgré l'avis général de la population [contre](https://www.amnesty.org/fr/latest/news/2015/03/global-opposition-to-usa-big-brother-mass-surveillance/) la surveillance des communications électroniques, les gouvernements des différents pays continuent d'opérer ces pratiques dans le plus grand secret. Cette distance entre l'avis de la majorité de la population et les décisions prises par nos gouvernements illustre les limites de nos systèmes politiques.

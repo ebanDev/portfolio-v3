@@ -1,21 +1,27 @@
-import tailwindcss from "@tailwindcss/vite";
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   modules: [
-    '@nuxt/fonts',
-    '@nuxt/icon',
     '@nuxt/image',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxt/ui',
+    'nuxt-studio',
   ],
 
   css: ['~/assets/css/main.css'],
 
-  vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+  ui: {
+    colorMode: false
+  },
+
+  studio: {
+    repository: {
+      provider: 'github',
+      owner: 'ebanDev',
+      repo: 'portfolio-v3',
+      branch: 'main'
+    },
+    dev: false,
   },
 })

@@ -1,6 +1,6 @@
 # Portfolio v3
 
-Eban Rami's personal portfolio website built with Nuxt 3 and Tailwind CSS.
+Eban Rami's personal portfolio website built with Nuxt 4 and Tailwind CSS.
 
 ## Features
 
@@ -9,7 +9,7 @@ Eban Rami's personal portfolio website built with Nuxt 3 and Tailwind CSS.
 
 ## Tech Stack
 
-- Nuxt 3
+- Nuxt 4
 - TypeScript
 - Tailwind CSS
 - `@nuxt/content` for Markdown content
@@ -45,10 +45,11 @@ bun run preview
 
 ```
 .
-├── assets/              # Global styles
-├── components/          # Vue components (ModeSwitcher, AvatarStack, CardList)
+├── app/                 # Nuxt srcDir (default in Nuxt 4)
+│   ├── assets/          # Global styles
+│   ├── components/      # Vue components (ModeSwitcher, AvatarStack, CardList)
+│   └── pages/           # Nuxt page components
 ├── content/             # Markdown content (index & articles)
-├── pages/               # Nuxt page components
 ├── public/              # Public assets & images
 ├── nuxt.config.ts       # Nuxt configuration
 ├── content.config.ts    # Content collections configuration

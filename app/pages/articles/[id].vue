@@ -1,19 +1,17 @@
 <template>
   <div class="w-full px-4 py-4 mx-auto max-w-2xl">
-    <NuxtLink to="/article"
-      class="bg-purple-200 hover:bg-purple-500 hover:text-white transition flex items-center py-1 px-2 mb-4 w-max rounded-lg gap-1">
-      <Icon name="tabler-arrow-left" />Accueil
-    </NuxtLink>
+    <UButton to="/article" color="violet" variant="soft" class="mb-4" size="sm">
+      <Icon name="ph:arrow-left-bold" class="size-4" />
+      <span>Accueil</span>
+    </UButton>
     <h1 class="text-2xl sm:text-3xl md:!text-4xl font-bold mb-2" v-if="article">
-      <Icon v-if="article.meta.icon" :name="article.meta.icon" class="mr-1 inline-block align-sub" />{{ article.title }}
+      <Icon v-if="article.meta.icon" :name="article.meta.icon" class="mr-2 inline-block align-sub" />{{ article.title }}
     </h1>
     <span class="text-gray-500 text-sm mb-4" v-if="article">{{ article.meta.date }}</span>
-    <span v-if="article && article.meta.initialLink" class="prose bg-purple-50 rounded-lg px-4 py-3 my-2 block">Article
-      initialement
-      écrit pour <span class="font-medium">{{ article.meta.initialPublisher }}</span> et disponible <NuxtLink
-        :to="article.meta.initialLink" external class="inline-flex gap-1 items-center link font-medium align-middle">
-        <Icon name="tabler-link" />ici
-      </NuxtLink></span>
+    <UAlert v-if="article && article.meta.initialLink" class="my-6" color="secondary" variant="subtle"
+      orientation="horizontal" :title="'Article initialement publié et écrit pour ' + article.meta.initialPublisher"
+      :actions="[{ label: 'Voir l\'original', leadingIcon: 'ph:arrow-square-out-bold', to: article.meta.initialLink, target: '_blank' }]">
+    </UAlert>
     <div class="w-lg max-w-full mx-auto mb-4" v-if="article">
       <img v-if="article.meta.coverDescription" :src="article.meta.cover" alt="Article image"
         class="rounded-lg max-h-[70vh] w-full object-cover" />
@@ -21,7 +19,7 @@
         article.meta.coverDescription }}</span>
     </div>
     <ContentRenderer v-if="article" :value="article"
-      class="prose prose-h1:text-2xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-pre:bg-purple-50 prose-p:text-justify" />
+      class="max-w-none w-full prose prose-h1:text-2xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-p:text-pretty prose-pre:text-highlighted" />
     <div v-else>Article not found</div>
   </div>
 </template>
@@ -56,7 +54,7 @@ useHead({
 
 
   h2 {
-    @apply text-xl mt-8 font-bold mb-4;
+    @apply mt-8 font-bold mb-4;
   }
 
   img {

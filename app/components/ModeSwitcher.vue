@@ -15,7 +15,10 @@ const base = C.pad + (C.icon - C.sq) / 2
 // — Reactive state —
 const box = ref<HTMLElement | null>(null)
 const idx  = ref(0)
-watch(idx, (newVal) => emit('update:mode', modes[newVal].id))
+watch(idx, (newVal) => {
+  const mode = modes[newVal]
+  if (mode) emit('update:mode', mode.id)
+})
 const drag = ref({ on: false, start: 0, x: 0 })
 
 // — Derived transforms —
@@ -25,7 +28,10 @@ const tf   = computed(() =>
   `translateX(${pos.value}px) scaleX(${1 + prog.value * .6}) scaleY(${1 - prog.value * .3})`)
 
 // — Utils —
-const localX   = (e: PointerEvent) => e.clientX - (box.value?.getBoundingClientRect().left || 0)
+const localX   = (e: PointerEvent) => {
+  const rect = box.value?.getBoundingClientRect()
+  return e.clientX - (rect?.left || 0)
+}
 const clampIdx = (n:number)       => Math.min(modes.length - 1, Math.max(0, n))
 const nearest  = (x:number)       => clampIdx(Math.round((x - base) / step))
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-4 py-4 mx-auto max-w-2xl">
+  <div class="w-full px-4 py-4 mx-auto max-w-3xl">
     <ContentRenderer v-if="article" :value="article" />
     <div v-else>Article not found</div>
   </div>
@@ -17,6 +17,10 @@ useSeoMeta({
 <style>
 @reference "tailwindcss";
 
+p {
+  @apply my-3 leading-7;
+}
+
 b,
 strong {
   @apply font-bold;
@@ -28,6 +32,6 @@ p>a {
 
 
 h2 {
-  @apply text-xl mt-8 font-bold mb-4;
+  @apply text-2xl mt-8 font-bold mb-4;
 }
 </style>
