@@ -15,6 +15,11 @@ export default defineNuxtConfig({
     colorMode: false
   },
 
+  routeRules: {
+    '/articles/**': { prerender: true },
+    '/': { prerender: true },
+  },
+
   studio: {
     repository: {
       provider: 'github',
