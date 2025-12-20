@@ -1,6 +1,6 @@
 <template>
   <div class="w-full px-4 py-4 mx-auto max-w-2xl">
-    <UButton to="/article" color="violet" variant="soft" class="mb-4" size="sm">
+    <UButton to="/" variant="soft" class="mb-4" size="sm">
       <Icon name="ph:arrow-left-bold" class="size-4" />
       <span>Accueil</span>
     </UButton>
