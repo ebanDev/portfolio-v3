@@ -80,7 +80,7 @@ export default defineAppConfig({
       }
     },
     pageGrid: {
-      base: '!gap-4',
+      base: '!gap-4 grid-cols-2',
     }
   }
 });

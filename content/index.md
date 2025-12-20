@@ -6,8 +6,8 @@ description: Eban Rami's personal website
 ::avatar-stack
 ---
 avatars:
-  - /avatar-1.jpeg
   - /avatar-2.jpg
+  - /avatar-1.jpeg
   - /avatar-3.jpg
 ---
 ::
@@ -18,7 +18,7 @@ I'm **Eban**, I like crafting empowering experiences through code.
 
 On this website, you'll find projects I've worked on, articles I've written, and a few other things.
 
-Feel free to explore and [reach out](mailto\:contact@eban.eu.org) if you have any questions!
+Feel free to explore and [reach out](mailto\:rami@eban.eu.org) if you have any questions!
 
 ## Projects
 

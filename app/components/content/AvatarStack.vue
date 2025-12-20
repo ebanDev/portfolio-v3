@@ -9,20 +9,20 @@ function handleClick(): void {
 </script>
 
 <template>
-  <div class="group flex items-center mb-6 w-26 h-20 relative cursor-pointer" @click="handleClick">
-    <div class="size-20 left-1 rounded-full absolute shadow-md z-20">
+  <div class="group flex items-center mb-8 w-26 h-26 relative cursor-pointer" @click="handleClick">
+    <div class="size-26 left-1 rounded-full absolute shadow-md z-20">
       <NuxtImg :src="avatars[0]" alt="Avatar" class="w-full h-full rounded-full" height="128" width="128" format="avif" />
     </div>
     <div :class="[
-      'rounded-full shadow-md absolute bottom-0 z-10 transition-all duration-150 ease-in-out',
-      'size-18 left-5 group-hover:size-20 group-hover:left-16',
+      'rounded-full shadow-md absolute bottom-1 z-10 transition-all duration-150 ease-in-out',
+      'size-24 left-8 group-hover:size-26 group-hover:left-22 group-hover:bottom-0',
       isActive && 'size-20 left-16'
     ]">
       <NuxtImg :src="avatars[1]" alt="Avatar" class="w-full h-full rounded-full" height="128" width="128" format="avif" />
     </div>
     <div :class="[
-      'rounded-full shadow-md absolute bottom-0 z-0 transition-all duration-150 ease-in-out',
-      'size-16 left-9 group-hover:size-20 group-hover:left-32',
+      'rounded-full shadow-md absolute bottom-2 z-0 transition-all duration-150 ease-in-out',
+      'size-22 left-16 group-hover:size-26 group-hover:left-42 group-hover:bottom-0',
       isActive && 'size-20 left-32'
     ]">
       <NuxtImg :src="avatars[2]" alt="Avatar" class="w-full h-full rounded-full" height="128" width="128" format="avif" />
