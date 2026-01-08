@@ -50,6 +50,10 @@ cards:
     image: Projects%200bf83c5ac16a4b078f07a4fddcd722d8/Frame_11(2).png
     link: https://github.com/ebanDev/Gazette
     icon: ph:newspaper-bold
+  - title: nuxt-dynqr
+    description: A dynamic QR code generator for Nuxt tailored for Yunohost deployment
+    link: https://github.com/Solidaires-Etudiant-e-s/nuxt-dynqr
+    icon: ph:qr-code-bold
   - title: i-learned-blog
     description: A former collaborative blog aimed at democratizing IT knowledge. 
     image: Projects%200bf83c5ac16a4b078f07a4fddcd722d8/Screenshot_from_2024-07-30_12-06-33.png
