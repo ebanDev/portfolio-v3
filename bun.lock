@@ -21,6 +21,9 @@
         "vue-router": "^4.6.4",
         "vue-tsc": "^3.2.6",
       },
+      "devDependencies": {
+        "@iconify-json/tabler": "^1.2.31",
+      },
     },
   },
   "packages": {
@@ -205,6 +208,8 @@
     "@humanwhocodes/retry": ["@humanwhocodes/retry@0.4.3", "", {}, "sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ=="],
 
     "@iconify-json/ph": ["@iconify-json/ph@1.2.2", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-PgkEZNtqa8hBGjHXQa4pMwZa93hmfu8FUSjs/nv4oUU6yLsgv+gh9nu28Kqi8Fz9CCVu4hj1MZs9/60J57IzFw=="],
+
+    "@iconify-json/tabler": ["@iconify-json/tabler@1.2.31", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-Jfcw5TpGhfKKWyz1dGk7e79zIgDmpMKNYL0bjt17sURBPifAxowQcWAzcEhuiWU7FGXUM2NT6UhvACFZp7Hnjw=="],
 
     "@iconify/collections": ["@iconify/collections@1.0.542", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-M7vSam/3pooyc4DMvJqzyk4pKboQDtcM5DUsFMysIklOBzjTMELu1nyfRJnBPWpNm7B2oqOHUfJ8cDdFwseZFw=="],
 

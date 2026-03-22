@@ -14,11 +14,15 @@ avatars:
 
 Hey there! Welcome to my corner of the internet 🌱.
 
-I'm **Eban**, I like crafting empowering experiences through code.
-
-On this website, you'll find projects I've worked on, articles I've written, and a few other things.
+I'm **Eban**, I like crafting empowering experiences through code. On this website, you'll find projects I've worked on, articles I've written, and a few other things.
 
 Feel free to explore and [reach out](mailto\:rami@eban.eu.org) if you have any questions!
+
+::callout{icon="tabler:telescope" color="primary"}
+This website is also accessible via various protocols: [HTTPS](https://eban.eu.org), [Gemini](gemini://eban.eu.org), and more to come.
+::
+
+
 
 ## Projects
 

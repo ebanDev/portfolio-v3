@@ -81,6 +81,20 @@ export default defineAppConfig({
     },
     pageGrid: {
       base: '!gap-4 grid-cols-2',
+    },
+    prose: {
+      callout: {
+        slots: {
+          icon: 'size-5'
+        },
+        variants: {
+          color: {
+            primary: {
+              base: 'bg-pastel-green/10 text-pastel-green',
+            }
+          }
+        }
+      },
     }
   }
 });

@@ -28,5 +28,8 @@
     "prod": "bun .output/server/index.mjs",
     "prod:gemini": "bun gemini/server.js --prod"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@iconify-json/tabler": "^1.2.31"
+  }
 }

@@ -162,13 +162,28 @@ const mergeMultilineImages = (markdown) => {
   return mergedLines
 }
 
+const expandCustomBlocks = (markdown) => {
+  return markdown.replace(/::callout(?:\{[^}]*\})?\n([\s\S]*?)\n::/g, (_, body) => {
+    return body
+      .trim()
+      .split('\n')
+      .map((line) => {
+        const trimmedLine = line.trim()
+        return trimmedLine ? `> ${trimmedLine}` : '>'
+      })
+      .join('\n')
+  })
+}
+
 export const convertMarkdownToGemtext = (markdown) => {
   const output = []
   const paragraphLines = []
   const tableLines = []
   let inCodeBlock = false
 
-  for (const line of mergeMultilineImages(markdown.replace(/\r\n/g, '\n'))) {
+  const normalizedMarkdown = expandCustomBlocks(markdown.replace(/\r\n/g, '\n'))
+
+  for (const line of mergeMultilineImages(normalizedMarkdown)) {
     const trimmedLine = line.trim()
 
     if (trimmedLine.startsWith('```')) {
