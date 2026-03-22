@@ -3,20 +3,19 @@
   "dependencies": {
     "@derhuerst/gemini": "^2.0.1",
     "@iconify-json/ph": "^1.2.2",
-    "@nuxt/content": "^3.9.0",
-    "@nuxt/eslint": "^1.12.1",
+    "@nuxt/content": "^3.12.0",
+    "@nuxt/eslint": "^1.15.2",
     "@nuxt/fonts": "0.11.2",
     "@nuxt/icon": "1.12.0",
     "@nuxt/image": "1.10.0",
-    "@nuxt/ui": "^4.3.0",
+    "@nuxt/ui": "^4.5.1",
     "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.1.18",
-    "nuxt": "^4.2.2",
-    "nuxt-studio": "^1.0.0-beta.1",
-    "tailwindcss": "^4.1.18",
-    "vue": "^3.5.26",
+    "@tailwindcss/vite": "^4.2.2",
+    "nuxt": "^4.4.2",
+    "tailwindcss": "^4.2.2",
+    "vue": "^3.5.30",
     "vue-router": "^4.6.4",
-    "vue-tsc": "^3.1.8"
+    "vue-tsc": "^3.2.6"
   },
   "private": true,
   "scripts": {
@@ -26,7 +25,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "prod": "nuxt start",
+    "prod": "bun .output/server/index.mjs",
     "prod:gemini": "bun gemini/server.js --prod"
   },
   "type": "module"

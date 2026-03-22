@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/content',
     '@nuxt/ui',
-    'nuxt-studio',
   ],
 
   css: ['~/assets/css/main.css'],
@@ -20,13 +19,7 @@ export default defineNuxtConfig({
     '/': { prerender: true },
   },
 
-  studio: {
-    repository: {
-      provider: 'github',
-      owner: 'ebanDev',
-      repo: 'portfolio-v3',
-      branch: 'main'
-    },
-    dev: false,
+  nitro: {
+    preset: 'bun',
   },
 })
