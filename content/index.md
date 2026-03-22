@@ -19,7 +19,7 @@ I'm **Eban**, I like crafting empowering experiences through code. On this websi
 Feel free to explore and [reach out](mailto\:rami@eban.eu.org) if you have any questions!
 
 ::callout{icon="tabler:telescope" color="primary"}
-This website is also accessible via various protocols: [HTTPS](https://eban.eu.org), [Gemini](gemini://eban.eu.org), and more to come.
+This website is also accessible via various protocols: [HTTPS](https://eban.eu.org), [Gemini](gemini://eban.eu.org), [Tor](http://ebanrmiuzb5a6ozeik3ruf7voanopoezkipfdnycsxgg253pe5au6nqd.onion/), and more to come.
 ::
 
 
