@@ -1,6 +1,7 @@
 {
-  "name": "nuxt-app",
+  "name": "eban.eu.org",
   "dependencies": {
+    "@derhuerst/gemini": "^2.0.1",
     "@iconify-json/ph": "^1.2.2",
     "@nuxt/content": "^3.9.0",
     "@nuxt/eslint": "^1.12.1",
@@ -21,9 +22,12 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "dev:gemini": "bun gemini/server.js --dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prod": "nuxt start",
+    "prod:gemini": "bun gemini/server.js --prod"
   },
   "type": "module"
 }
