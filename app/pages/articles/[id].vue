@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-4 py-4 mx-auto max-w-2xl">
+  <div class="w-full px-4 py-4 mx-auto max-w-4xl">
     <UButton to="/" variant="soft" class="mb-4" size="sm">
       <Icon name="ph:arrow-left-bold" class="size-4" />
       <span>Accueil</span>
@@ -18,14 +18,18 @@
       <span v-if="article.meta.coverDescription" class="text-sm text-gray-500 italic text-center w-full mt-2 block">{{
         article.meta.coverDescription }}</span>
     </div>
-    <ContentRenderer v-if="article" :value="article"
-      class="max-w-none w-full prose prose-h1:text-2xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-p:text-pretty prose-pre:text-highlighted" />
+    <div v-if="article" ref="articleBody">
+      <ContentRenderer :value="article"
+        class="mx-auto max-w-3xl w-full prose prose-h1:text-2xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-p:text-pretty prose-pre:text-highlighted" />
+      <ArticleCharts :root="articleBody" />
+    </div>
     <div v-else>Article not found</div>
   </div>
 </template>
 
 <script setup>
 const route = useRoute()
+const articleBody = ref(null)
 const { data: article } = await useAsyncData(route.path, () => {
   return queryCollection('articles').path(route.path).first()
 })
@@ -40,6 +44,13 @@ useHead({
 @reference "tailwindcss";
 
 .prose {
+  @apply leading-8;
+
+  p,
+  li,
+  blockquote {
+    @apply leading-8;
+  }
 
   b,
   strong {
@@ -50,6 +61,11 @@ useHead({
   li>a,
   .link {
     @apply underline underline-offset-4 hover:underline-offset-2 hover:text-black hover:font-medium transition-all duration-150;
+  }
+
+  :not(pre)>code::before,
+  :not(pre)>code::after {
+    content: none;
   }
 
 
